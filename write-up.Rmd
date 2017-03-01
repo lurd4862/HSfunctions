@@ -11,7 +11,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Examples
 
-# Purrr data frame into 2 models and retreive metrics
+## Purrr 
+### data.frame - split - 2 models - extract results
 
 ```{r cars}
 library(broom)
@@ -28,13 +29,3 @@ df<-
   map(~ .x %>% map_dbl("r.squared"))
 
 ```
-
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
