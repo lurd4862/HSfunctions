@@ -1,0 +1,40 @@
+---
+title: "Functions_examples"
+author: "Hanjo Odendaal"
+date: "01 March 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Examples
+
+# Purrr data frame into 2 models and retreive metrics
+
+```{r cars}
+library(broom)
+library(purrr)
+
+x <- data.frame(letter = rep(c("A", "B"), 20), C = rnorm(40), D = rnorm(40))
+
+df<- 
+  x %>% 
+  split(.$letter) %>% 
+  map(~ list(lm(.$C ~ .$D),
+               lm(.$C ~ .$D))) %>% 
+  map(~ .x %>%  map(summary)) %>% 
+  map(~ .x %>% map_dbl("r.squared"))
+
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

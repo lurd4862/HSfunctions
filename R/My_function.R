@@ -1,3 +1,3 @@
 My_function_fn <- function (){
-  cat("hello world\n Awe\n Nuut")
+  cat("hello world\n Awe")
 }
